@@ -3,7 +3,7 @@ date_added: 2021-01-01
 title: M5Stack Core2
 model: Core2
 category: misc
-type: DIY
+type: Display
 standard: global
 image: /assets/images/m5stack_core2.jpg
 template32: '{"NAME":"M5Stack Core2","GPIO":[0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"FLAG":0,"BASE":1}' 
@@ -34,7 +34,11 @@ Use latest Tasmota development release and set in user_config_override.h
 #define USE_FT5206  
 #define USE_MPU6886  
 ```
-add this in platformio.ini to `build_flags`: `-DBOARD_HAS_PSRAM`
+add this in platformio.ini to `build_flags`: 
+```arduino
+-DBOARD_HAS_PSRAM
+-mfix-esp32-psram-cache-issue
+```
 
 Fully supported with all sensors and SD card.
 
